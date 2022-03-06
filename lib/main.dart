@@ -27,13 +27,23 @@ class _RandomWordsState extends State<RandomWords> {
   final _saved = <WordPair>{};
   final _biggerFont = const TextStyle(fontSize: 18.0);
   // #enddocregion RWS-var
+  void _pushSaved() {
+  }
 
   // #docregion RWS-build
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Startup Name Generator'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list),
+            onPressed: _pushSaved,
+            tooltip: 'Saved Suggestions',
+          ),
+        ],
       ),
       // #docregion itemBuilder
       body: ListView.builder(
