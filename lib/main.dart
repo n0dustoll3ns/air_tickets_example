@@ -40,11 +40,14 @@ class _RandomWordsState extends State<RandomWords> {
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
+return ListTile(
+  title: Text(
+    _suggestions[index].asPascalCase,
+    style: _biggerFont,
+  ),
+);
     body:
     ListView.builder(
       padding: const EdgeInsets.all(16.0),
