@@ -7,13 +7,13 @@ class Tickets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: Row(
-          mainAxisSize: MainAxisSize.min,
           children: [
             TextButton(onPressed: () {}, child: const Text('Business Class')),
-            TextButton(onPressed: () {}, child: const Text('First Class')),
-            TextButton(onPressed: () {}, child: const Text('Economy')),
-            TextButton(onPressed: () {}, child: const Text('Contact us')),
+            // TextButton(onPressed: () {}, child: const Text('First Class')),
+            // TextButton(onPressed: () {}, child: const Text('Economy')),
+            // TextButton(onPressed: () {}, child: const Text('Contact us')),
           ],
         ),
       ),
