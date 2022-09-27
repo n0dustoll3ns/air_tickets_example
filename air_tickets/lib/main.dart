@@ -12,24 +12,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        backgroundColor: const Color(0xFFCDC1FF),
+        secondaryHeaderColor: const Color(0xFF6C63FF),
+        primaryColor: const Color(0xFFFED66b),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Tickets(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Tickets extends StatefulWidget {
+  const Tickets({super.key, required this.title});
 
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Tickets> createState() => _TicketsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _TicketsState extends State<Tickets> {
   int _counter = 0;
 
   void _incrementCounter() {
