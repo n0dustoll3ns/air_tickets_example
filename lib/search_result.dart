@@ -5,6 +5,14 @@ class SearchResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).secondaryHeaderColor,
+          shape: BoxShape.rectangle,
+          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+        ),
+      ),
+    );
   }
 }
