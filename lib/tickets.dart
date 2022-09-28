@@ -1,33 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'menu.dart';
+import 'search_result.dart';
+
 class Tickets extends StatelessWidget {
   const Tickets({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: Row(
-          children: [
-            TextButton(onPressed: () {}, child: const Text('Business Class')),
-            // TextButton(onPressed: () {}, child: const Text('First Class')),
-            // TextButton(onPressed: () {}, child: const Text('Economy')),
-            // TextButton(onPressed: () {}, child: const Text('Contact us')),
-          ],
-        ),
-      ),
-      body: Center(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              'counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Menu(),
+            SearchResults(),
           ],
         ),
       ),
@@ -39,3 +29,4 @@ class Tickets extends StatelessWidget {
     );
   }
 }
+
