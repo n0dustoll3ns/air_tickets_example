@@ -23,20 +23,20 @@ class Menu extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: TextButton(onPressed: () {}, child: Text('Business Class')),
+                  padding: const EdgeInsets.only(right: 30),
+                  child: TextButton(onPressed: () {}, child: const Text('Business Class')),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: TextButton(onPressed: () {}, child: Text('First Class')),
+                  child: TextButton(onPressed: () {}, child: const Text('First Class')),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: TextButton(onPressed: () {}, child: Text('Economy')),
+                  child: TextButton(onPressed: () {}, child: const Text('Economy')),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: TextButton(onPressed: () {}, child: Text('Contact us')),
+                  child: TextButton(onPressed: () {}, child: const Text('Contact us')),
                 ),
               ],
             ),

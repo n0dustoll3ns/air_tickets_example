@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: const TextTheme(
+          headlineSmall: TextStyle(fontSize: 18)
+        ),
+        dataTableTheme: const DataTableThemeData(dataTextStyle: TextStyle(color: Colors.white)),
         fontFamily: 'Arial',
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(foregroundColor: Colors.black),

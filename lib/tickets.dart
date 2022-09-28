@@ -15,7 +15,7 @@ class Tickets extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
+          children: const <Widget>[
             Menu(),
             SearchResults(),
           ],
