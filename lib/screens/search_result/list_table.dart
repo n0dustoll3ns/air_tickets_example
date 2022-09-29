@@ -1,3 +1,4 @@
+import 'package:air_tickets/screens/search_result/components/ticket_row.dart';
 import 'package:flutter/material.dart';
 
 import '../../global/global_const.dart';
@@ -21,7 +22,7 @@ class SearchResults extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(6.0)),
         ),
         child: ListView(
-          children: List.generate(13, (index) => Row(children: [])),
+          children: List.generate(88, (index) => TicketRow(ticket: Ticket())),
         ),
       ),
     );

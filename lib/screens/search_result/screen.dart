@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../general/menu.dart';
 import '../../model/ticket.dart';
-import 'data_table.dart';
+import 'list_table.dart';
 
 class Tickets extends StatelessWidget {
   const Tickets({super.key});
