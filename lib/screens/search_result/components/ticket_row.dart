@@ -1,4 +1,5 @@
 import 'package:air_tickets/model/ticket.dart';
+import 'package:air_tickets/screens/search_result/components/ticket_price.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class TicketRow extends StatelessWidget {
       TicketCell(title: cellTitles[1], text: ticket.from),
       TicketCell(title: cellTitles[2], text: ticket.to),
       TicketCell(title: cellTitles[3], text: ticket.toString()),
-      TicketCell(title: cellTitles[4], text: ticket.price.toString()),
+      TicketPrice(title: cellTitles[4], price: ticket.price),
     ]);
   }
 }

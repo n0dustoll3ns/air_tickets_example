@@ -14,7 +14,7 @@ class TicketCell extends StatelessWidget {
         children: [
           Text(
             title,
-            style: whiteTextStyle,
+            style: whiteTextStyle.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 36,

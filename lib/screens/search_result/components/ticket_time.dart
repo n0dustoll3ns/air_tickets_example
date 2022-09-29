@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class TicketPrice extends StatelessWidget {
-  const TicketPrice({super.key, required this.title, required this.price});
+class TicketTime extends StatelessWidget {
+  const TicketTime({super.key, required this.title, required this.hours, required this.minutes});
   final String title;
-  final double price;
+  final int hours;
+  final int minutes;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,14 +19,10 @@ class TicketPrice extends StatelessWidget {
           const SizedBox(
             height: 36,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                elevation: 0, foregroundColor: Colors.black, backgroundColor: Theme.of(context).primaryColor),
-            onPressed: () {},
-            child: Text(
-              "€ $price",
-            ),
-          )
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white),
+          ),
         ],
       ),
     );
