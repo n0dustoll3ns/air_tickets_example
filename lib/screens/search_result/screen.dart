@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'menu.dart';
-import 'search_result.dart';
+import '../../general/menu.dart';
+import '../../model/ticket.dart';
+import 'data_table.dart';
 
 class Tickets extends StatelessWidget {
   const Tickets({super.key});
@@ -13,11 +14,11 @@ class Tickets extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
-          children: const <Widget>[
-            Menu(),
-            SearchResults(),
+          children: <Widget>[
+            const Menu(),
+            SearchResults(tickets: List.generate(9, (index) => Ticket())),
           ],
         ),
       ),
@@ -29,4 +30,3 @@ class Tickets extends StatelessWidget {
     );
   }
 }
-

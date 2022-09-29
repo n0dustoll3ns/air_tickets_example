@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'tickets.dart';
+import 'screens/search_result/screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AirTicketsExample());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AirTicketsExample extends StatelessWidget {
+  const AirTicketsExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: const TextTheme(
-          headlineSmall: TextStyle(fontSize: 18)
-        ),
+        textTheme: const TextTheme(headlineSmall: TextStyle(fontSize: 18)),
         dataTableTheme: const DataTableThemeData(dataTextStyle: TextStyle(color: Colors.white)),
         fontFamily: 'Arial',
         textButtonTheme: TextButtonThemeData(

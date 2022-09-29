@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'global_const.dart';
+import '../../global/global_const.dart';
+import '../../model/ticket.dart';
 
 class SearchResults extends StatelessWidget {
-  const SearchResults({super.key});
-
+  const SearchResults({required this.tickets, super.key});
+  final List<Ticket> tickets;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,23 +20,8 @@ class SearchResults extends StatelessWidget {
           shape: BoxShape.rectangle,
           borderRadius: const BorderRadius.all(Radius.circular(6.0)),
         ),
-        child: DataTable(
-          headingRowHeight: 0,
-          columns: const <DataColumn>[DataColumn(label: SizedBox())],
-          rows: [
-            DataRow(cells: [
-              DataCell(
-                Column(
-                  children: [Text(co), Text(from[0])],
-                ),
-              ),
-              // DataCell(
-              //   Column(
-              //     children: [Text(co), Text(from[1])],
-              //   ),
-              // ),
-            ])
-          ],
+        child: ListView(
+          children: List.generate(13, (index) => Row(children: [])),
         ),
       ),
     );
