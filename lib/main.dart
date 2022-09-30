@@ -19,7 +19,7 @@ class AirTicketsExample extends StatelessWidget {
         dataTableTheme: const DataTableThemeData(dataTextStyle: TextStyle(color: Colors.white)),
         fontFamily: 'Arial',
         textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(foregroundColor: Colors.black),
+          style: TextButton.styleFrom(foregroundColor: Colors.black, textStyle: TextStyle(fontSize: 20)),
         ),
         backgroundColor: const Color(0xFFCDC1FF),
         secondaryHeaderColor: const Color(0xFF6C63FF),

@@ -1,5 +1,6 @@
 import 'package:air_tickets/model/ticket.dart';
 import 'package:air_tickets/screens/search_result/components/ticket_price.dart';
+import 'package:air_tickets/screens/search_result/components/ticket_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +15,11 @@ class TicketRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, mainAxisSize: MainAxisSize.max, children: [
-      TicketCell(title: cellTitles[0], text: ticket.airline),
-      TicketCell(title: cellTitles[1], text: ticket.from),
-      TicketCell(title: cellTitles[2], text: ticket.to),
-      TicketCell(title: cellTitles[3], text: ticket.toString()),
-      TicketPrice(title: cellTitles[4], price: ticket.price),
+      Expanded(child: TicketCell(title: cellTitles[0], text: ticket.airline)),
+      Expanded(child: TicketCell(title: cellTitles[1], text: ticket.from)),
+      Expanded(child: TicketCell(title: cellTitles[2], text: ticket.to)),
+      Expanded(child: TicketTime(title: cellTitles[3], time: ticket.time)),
+      Expanded(flex: 2, child: TicketPrice(title: cellTitles[4], price: ticket.price)),
     ]);
   }
 }

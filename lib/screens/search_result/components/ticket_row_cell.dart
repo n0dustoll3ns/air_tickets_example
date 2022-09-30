@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 
+import '../../../global/global_const.dart';
+
 class TicketCell extends StatelessWidget {
   const TicketCell({super.key, required this.title, required this.text});
   final String title;
   final String text;
   @override
   Widget build(BuildContext context) {
-    const whiteTextStyle = TextStyle(color: Colors.white);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 31, vertical: 35),
+      padding: cellPadding,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             title,
-            style: whiteTextStyle.copyWith(fontWeight: FontWeight.bold),
+            style: cellTextStyle.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(
-            height: 36,
+          SizedBox(
+            height: cellPadding.bottom,
           ),
           Text(
             text,
-            style: whiteTextStyle,
+            style: cellTextStyle,
           )
         ],
       ),

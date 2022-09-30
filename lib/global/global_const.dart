@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 const List<String> cellTitles = [
   'AirLine:',
   'From:',
@@ -16,3 +19,6 @@ const List<String> gTo = [
   'Naples',
   'Palermo',
 ];
+
+const EdgeInsets cellPadding = EdgeInsets.symmetric(vertical: 22);
+const TextStyle cellTextStyle = TextStyle(color: Colors.white, fontSize: 21);

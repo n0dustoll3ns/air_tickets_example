@@ -18,7 +18,7 @@ class Tickets extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const Menu(),
-            SearchResults(tickets: List.generate(9, (index) => Ticket())),
+            SearchResults(tickets: List.generate(62, (index) => Ticket())),
           ],
         ),
       ),

@@ -10,21 +10,24 @@ class SearchResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 22),
-        padding: const EdgeInsets.only(
-          left: 19,
-          right: 19,
-        ),
-        decoration: BoxDecoration(
-          color: Theme.of(context).secondaryHeaderColor,
-          shape: BoxShape.rectangle,
-          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-        ),
-        child: ListView(
-          children: List.generate(88, (index) => TicketRow(ticket: Ticket())),
-        ),
-      ),
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          constraints: constraints,
+          margin: const EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.only(
+            left: 19,
+            right: 19,
+          ),
+          decoration: BoxDecoration(
+            color: Theme.of(context).secondaryHeaderColor,
+            shape: BoxShape.rectangle,
+            borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+          ),
+          child: ListView(
+            children: List.generate(tickets.length, (index) => TicketRow(ticket: tickets[index])),
+          ),
+        );
+      }),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global/global_const.dart';
+
 class TicketPrice extends StatelessWidget {
   const TicketPrice({super.key, required this.title, required this.price});
   final String title;
@@ -7,23 +9,32 @@ class TicketPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 31, vertical: 35),
+      padding: cellPadding,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             title,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+            style: cellTextStyle.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(
-            height: 36,
+          SizedBox(
+            height: cellPadding.bottom,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                elevation: 0, foregroundColor: Colors.black, backgroundColor: Theme.of(context).primaryColor),
-            onPressed: () {},
-            child: Text(
-              "€ $price",
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 33),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                foregroundColor: Colors.black,
+                backgroundColor: Theme.of(context).primaryColor,
+              ),
+              onPressed: () {},
+              child: Text(
+                "€ $price",
+                style: cellTextStyle.copyWith(color: Colors.black),
+              ),
             ),
           )
         ],
