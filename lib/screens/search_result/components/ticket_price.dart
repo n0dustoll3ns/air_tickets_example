@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../global/global_const.dart';
 
 class TicketPrice extends StatelessWidget {
-  const TicketPrice({super.key, required this.title, required this.price});
+  const TicketPrice({super.key, required this.title, required this.price, required this.onPriceTap});
   final String title;
+  final Function onPriceTap;
   final double price;
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,12 @@ class TicketPrice extends StatelessWidget {
                 foregroundColor: Colors.black,
                 backgroundColor: Theme.of(context).primaryColor,
               ),
-              onPressed: () {},
+              onPressed: () {
+                onPriceTap();
+              },
               child: Text(
                 "€ $price",
-                style: cellTextStyle.copyWith(color: Colors.black),
+                style: cellTextStyle.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
               ),
             ),
           )
