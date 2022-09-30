@@ -7,19 +7,24 @@ import 'package:flutter/material.dart';
 import '../../../global/global_const.dart';
 import 'ticket_row_cell.dart';
 
-class TicketRow extends StatelessWidget {
+class TicketRow extends StatefulWidget {
   final Ticket ticket;
 
   const TicketRow({required this.ticket, super.key});
 
   @override
+  State<TicketRow> createState() => _TicketRowState();
+}
+
+class _TicketRowState extends State<TicketRow> {
+  @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, mainAxisSize: MainAxisSize.max, children: [
-      Expanded(child: TicketCell(title: cellTitles[0], text: ticket.airline)),
-      Expanded(child: TicketCell(title: cellTitles[1], text: ticket.from)),
-      Expanded(child: TicketCell(title: cellTitles[2], text: ticket.to)),
-      Expanded(child: TicketTime(title: cellTitles[3], time: ticket.time)),
-      Expanded(flex: 2, child: TicketPrice(title: cellTitles[4], price: ticket.price)),
+      Expanded(child: TicketCell(title: cellTitles[0], text: widget.ticket.airline)),
+      Expanded(child: TicketCell(title: cellTitles[1], text: widget.ticket.from)),
+      Expanded(child: TicketCell(title: cellTitles[2], text: widget.ticket.to)),
+      Expanded(child: TicketTime(title: cellTitles[3], time: widget.ticket.time)),
+      Expanded(flex: 2, child: TicketPrice(title: cellTitles[4], price: widget.ticket.price)),
     ]);
   }
 }

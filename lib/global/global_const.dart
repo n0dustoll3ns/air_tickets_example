@@ -21,4 +21,4 @@ const List<String> gTo = [
 ];
 
 const EdgeInsets cellPadding = EdgeInsets.symmetric(vertical: 22);
-const TextStyle cellTextStyle = TextStyle(color: Colors.white, fontSize: 21);
+const TextStyle cellTextStyle = TextStyle(color: Colors.white, fontSize: 16);

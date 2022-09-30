@@ -15,11 +15,12 @@ class AirTicketsExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: const TextTheme(headlineSmall: TextStyle(fontSize: 18)),
+        textTheme: const TextTheme(headlineSmall: TextStyle(fontSize: 16)),
         dataTableTheme: const DataTableThemeData(dataTextStyle: TextStyle(color: Colors.white)),
         fontFamily: 'Arial',
         textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(foregroundColor: Colors.black, textStyle: TextStyle(fontSize: 20)),
+          style: TextButton.styleFrom(
+              foregroundColor: Colors.black, textStyle: const TextStyle(fontFamily: 'Arial', fontSize: 18)),
         ),
         backgroundColor: const Color(0xFFCDC1FF),
         secondaryHeaderColor: const Color(0xFF6C63FF),
