@@ -1,3 +1,4 @@
+import 'package:air_tickets/screens/main_page.dart/screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/search_result/screen.dart';
@@ -26,7 +27,7 @@ class AirTicketsExample extends StatelessWidget {
         secondaryHeaderColor: const Color(0xFF6C63FF),
         primaryColor: const Color(0xFFFED66b),
       ),
-      home: const TicketsPage(),
+      home: const MainPage(),
     );
   }
 }
