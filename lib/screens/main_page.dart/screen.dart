@@ -1,9 +1,11 @@
 import 'package:air_tickets/screens/main_page.dart/components/search_filters.dart';
+import 'package:air_tickets/screens/search_result/list_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../general/menu.dart';
 import '../../global/global_const.dart';
+import '../search_result/screen.dart';
 import 'components/title_with_planes.dart';
 
 class MainPage extends StatelessWidget {
@@ -19,23 +21,34 @@ class MainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
-            Menu(),
-            TitleWithPlanes(),
-            SizedBox(height: 38),
-            SearchFilters(),
-            SizedBox(height: 38),
-            SearchPanel()
+          children: <Widget>[
+            const Menu(),
+            const TitleWithPlanes(),
+            const SizedBox(height: 38),
+            const SearchFilters(),
+            const SizedBox(height: 38),
+            SearchPanel(
+              showSearchResult: _createRoute,
+            )
           ],
         ),
       ),
     );
   }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const TicketsPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return child;
+      },
+    );
+  }
 }
 
 class SearchPanel extends StatelessWidget {
-  const SearchPanel({super.key});
-
+  const SearchPanel({super.key, required this.showSearchResult});
+  final Route<dynamic> Function() showSearchResult;
   @override
   Widget build(BuildContext context) {
     var toController = TextEditingController();
@@ -149,7 +162,7 @@ class SearchPanel extends StatelessWidget {
                   foregroundColor: Colors.black,
                   textStyle: const TextStyle(fontSize: 24, color: Colors.black),
                   backgroundColor: Theme.of(context).secondaryHeaderColor),
-              onPressed: () {},
+              onPressed: () => showSearchResult(),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
