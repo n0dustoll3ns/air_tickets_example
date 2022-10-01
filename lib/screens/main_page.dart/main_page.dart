@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 import '../../general/menu.dart';
-import '../../model/ticket.dart';
-import 'list_table.dart';
 
-class TicketsPage extends StatelessWidget {
-  const TicketsPage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,18 @@ class TicketsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const Menu(),
-            SearchResults(tickets: List.generate(62, (index) => Ticket())),
+            SearchPanel(),
           ],
         ),
       ),
     );
+  }
+}
+
+class SearchPanel extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }

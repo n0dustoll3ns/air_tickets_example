@@ -26,7 +26,7 @@ class AirTicketsExample extends StatelessWidget {
         secondaryHeaderColor: const Color(0xFF6C63FF),
         primaryColor: const Color(0xFFFED66b),
       ),
-      home: const Tickets(),
+      home: const TicketsPage(),
     );
   }
 }
