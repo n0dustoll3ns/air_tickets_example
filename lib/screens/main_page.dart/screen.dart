@@ -1,3 +1,4 @@
+import 'package:air_tickets/screens/main_page.dart/components/search_filters.dart';
 import 'package:flutter/material.dart';
 
 import '../../general/menu.dart';
@@ -10,17 +11,19 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: const <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
-            child: Menu(),
-          ),
-          TitleWithPlanes(),
-        ],
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 22),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: const <Widget>[
+            Menu(),
+            TitleWithPlanes(),
+            SizedBox(height: 38),
+            SearchFilters(),
+          ],
+        ),
       ),
     );
   }
