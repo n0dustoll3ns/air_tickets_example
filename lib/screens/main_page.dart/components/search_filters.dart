@@ -5,21 +5,29 @@ class SearchFilters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var btnStyle = TextButton.styleFrom();
+    var btnStyle = TextButton.styleFrom(textStyle: const TextStyle(fontSize: 16));
     return Align(
       alignment: Alignment.topLeft,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TextButton(onPressed: () {}, child: const Text('Round trip ⯆')),
+          TextButton(style: btnStyle, onPressed: () {}, child: const Text('Round trip ⯆')),
           const SizedBox(
             width: 26,
           ),
-          TextButton(onPressed: () {}, child: const Text('1 Adult ⯆')),
+          TextButton(
+            style: btnStyle,
+            onPressed: () {},
+            child: const Text('1 Adult ⯆'),
+          ),
           const SizedBox(
             width: 26,
           ),
-          TextButton(onPressed: () {}, child: const Text('Economy ⯆')),
+          TextButton(
+            style: btnStyle,
+            onPressed: () {},
+            child: const Text('Economy ⯆'),
+          ),
         ],
       ),
     );
