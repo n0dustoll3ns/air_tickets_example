@@ -10,38 +10,41 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var dx = MediaQuery.of(context).size.width * .5;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 22),
             child: Menu(),
           ),
-          Row(
-            children: [
-              Transform.translate(
-                offset: Offset(
-                  -MediaQuery.of(context).size.width * .2,
-                  0,
+          Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Transform.translate(
+                  offset: Offset(-dx, 0),
+                  child: SvgPicture.asset(
+                    'plane.svg',
+                  ),
                 ),
-                child: SvgPicture.asset(
-                  'plane.svg',
+                Text(
+                  'Best Price for Business class',
+                  style: Theme.of(context).textTheme.displaySmall,
+                  textAlign: TextAlign.center,
                 ),
-              ),
-              Expanded(child: SizedBox()),
-              Transform.translate(
-                offset: Offset(
-                  MediaQuery.of(context).size.width * .1,
-                  0,
-                ),
-                child: SvgPicture.asset(
-                  'plane.svg',
-                ),
-              )
-            ],
+                Transform.translate(
+                  offset: Offset(dx, 0),
+                  child: SvgPicture.asset(
+                    'plane.svg',
+                  ),
+                )
+              ],
+            ),
           ),
         ],
       ),
