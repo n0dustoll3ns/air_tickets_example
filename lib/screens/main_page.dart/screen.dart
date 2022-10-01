@@ -10,7 +10,8 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var dx = MediaQuery.of(context).size.width * .5;
+    var width = MediaQuery.of(context).size.width;
+    var dx = width < 1200 ? width * .65 : width * .5;
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
