@@ -1,9 +1,13 @@
+import 'package:air_tickets/screens/main_page.dart/components/reset_button.dart';
 import 'package:air_tickets/screens/main_page.dart/components/search_filters.dart';
 import 'package:air_tickets/screens/main_page.dart/components/search_properties.dart';
+import 'package:air_tickets/screens/search_result/list_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../general/menu.dart';
+import '../../model/ticket.dart';
+import 'components/search_button.dart';
 import 'components/title_with_planes.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,18 +18,33 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
-  late Animation<double> _searcherAnimation;
-
+  late Animation<double> _searcherTools;
+  late Animation<double> _searcherResults;
   late AnimationController _searcherAnimationController;
+  late Widget mainButton;
+
+  final List<Ticket> _tickets = List.generate(24, (index) => Ticket());
 
   @override
   void initState() {
+    // _tickets = [];
+    mainButton = SearchButton(onSearchPress: () {
+      _showResults();
+    });
     _searcherAnimationController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 2500));
-    _searcherAnimation =
-        CurvedAnimation(parent: _searcherAnimationController, curve: Curves.fastLinearToSlowEaseIn);
+        AnimationController(value: 0, vsync: this, duration: const Duration(milliseconds: 1500));
+    _searcherTools = Tween<double>(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(
+        parent: _searcherAnimationController,
+        curve: const Interval(0.0, 0.450, curve: Curves.easeInOutQuart),
+      ),
+    );
+    _searcherResults = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+      parent: _searcherAnimationController,
+      curve: const Interval(0.550, 1.000, curve: Curves.easeInOutQuart),
+    ));
     super.initState();
-    _searcherAnimationController.forward();
+    // _searcherAnimationController.forward();
   }
 
   @override
@@ -33,68 +52,61 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Menu(),
-            SizeTransition(
-              axis: Axis.vertical,
-              sizeFactor: _searcherAnimation,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  TitleWithPlanes(),
-                  SizedBox(height: 38),
-                  SearchFilters(),
-                  SizedBox(height: 38),
-                  SearchProperties(),
-                ],
-              ),
-            ),
-            const SizedBox(height: 33),
-            AnimatedSwitcher(
-                duration: Duration(milliseconds: 2500), child: SearchButton(onSearchPress: () {})),
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: AnimatedBuilder(
+          animation: _searcherAnimationController,
+          builder: (context, child) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const Menu(),
+                SizeTransition(
+                  sizeFactor: _searcherTools,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const TitleWithPlanes(),
+                      const SizedBox(height: 38),
+                      const SearchFilters(),
+                      const SizedBox(height: 38),
+                    ],
+                  ),
+                ),
+                const SearchProperties(),
+                const SizedBox(height: 33),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 1200),
+                  transitionBuilder: (child, animation) {
+                    return ScaleTransition(scale: animation, child: child);
+                  },
+                  child: mainButton,
+                ),
+                const SizedBox(height: 33),
+                SizeTransition(
+                  sizeFactor: _searcherResults,
+                  child: SearchResults(
+                    tickets: _tickets,
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
   }
 
-  void _createRoute() {
-    if (_searcherAnimation.status != AnimationStatus.completed) {
-      _searcherAnimationController.forward();
+  Future<void> _showResults() async {
+    if (_searcherAnimationController.status == AnimationStatus.completed) {
+      mainButton = SearchButton(onSearchPress: () => _showResults());
+      await _searcherAnimationController.animateBack(0, duration: Duration(milliseconds: 1600));
     } else {
-      _searcherAnimationController.animateBack(0, duration: Duration(seconds: 1));
+      mainButton = ResetButton(onResetPress: () => _showResults());
+      await _searcherAnimationController.forward().orCancel;
     }
-  }
-}
-
-class SearchButton extends StatelessWidget {
-  const SearchButton({super.key, required this.onSearchPress});
-  final Function onSearchPress;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
-      height: 48,
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              textStyle: const TextStyle(fontSize: 24, color: Colors.black),
-              backgroundColor: Theme.of(context).secondaryHeaderColor),
-          onPressed: () {},
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              const Text('Search Flights'),
-              Align(alignment: Alignment.centerRight, child: SvgPicture.asset('loupe.svg'))
-            ],
-          )),
-    );
   }
 }

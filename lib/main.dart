@@ -1,8 +1,6 @@
 import 'package:air_tickets/screens/main_page.dart/screen.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/search_result/screen.dart';
-
 void main() {
   runApp(const AirTicketsExample());
 }

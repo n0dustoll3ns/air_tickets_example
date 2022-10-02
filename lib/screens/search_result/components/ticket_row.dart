@@ -25,6 +25,7 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
   @override
   void initState() {
     _controller = AnimationController(
+      value: 0,
       duration: const Duration(seconds: 1),
       vsync: this,
     );
