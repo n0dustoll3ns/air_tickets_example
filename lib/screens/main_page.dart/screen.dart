@@ -1,8 +1,9 @@
 import 'package:air_tickets/screens/main_page.dart/components/search_filters.dart';
+import 'package:air_tickets/screens/main_page.dart/components/search_properties.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../general/menu.dart';
-import 'components/search_panel.dart';
 import 'components/title_with_planes.dart';
 
 class MainPage extends StatefulWidget {
@@ -50,13 +51,14 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   TitleWithPlanes(),
                   SizedBox(height: 38),
                   SearchFilters(),
+                  SizedBox(height: 38),
+                  SearchProperties(),
                 ],
               ),
             ),
-            SizedBox(height: 38),
-            SearchPanel(
-              showSearchResult: _createRoute,
-            )
+            const SizedBox(height: 33),
+            AnimatedSwitcher(
+                duration: Duration(milliseconds: 2500), child: SearchButton(onSearchPress: () {})),
           ],
         ),
       ),
@@ -69,5 +71,30 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     } else {
       _searcherAnimationController.animateBack(0, duration: Duration(seconds: 1));
     }
+  }
+}
+
+class SearchButton extends StatelessWidget {
+  const SearchButton({super.key, required this.onSearchPress});
+  final Function onSearchPress;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 2,
+      height: 48,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.black,
+              textStyle: const TextStyle(fontSize: 24, color: Colors.black),
+              backgroundColor: Theme.of(context).secondaryHeaderColor),
+          onPressed: () {},
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              const Text('Search Flights'),
+              Align(alignment: Alignment.centerRight, child: SvgPicture.asset('loupe.svg'))
+            ],
+          )),
+    );
   }
 }
