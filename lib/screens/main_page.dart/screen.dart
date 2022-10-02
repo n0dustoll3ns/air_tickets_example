@@ -3,7 +3,6 @@ import 'package:air_tickets/screens/main_page.dart/components/search_filters.dar
 import 'package:air_tickets/screens/main_page.dart/components/search_properties.dart';
 import 'package:air_tickets/screens/search_result/list_table.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../general/menu.dart';
 import '../../model/ticket.dart';
@@ -51,51 +50,48 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
-        child: AnimatedBuilder(
-          animation: _searcherAnimationController,
-          builder: (context, child) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                const Menu(),
-                SizeTransition(
-                  sizeFactor: _searcherTools,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const TitleWithPlanes(),
-                      const SizedBox(height: 38),
-                      const SearchFilters(),
-                      const SizedBox(height: 38),
-                    ],
-                  ),
+      body: AnimatedBuilder(
+        animation: _searcherAnimationController,
+        builder: (context, child) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Menu(),
+              SizeTransition(
+                sizeFactor: _searcherTools,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children:const  [
+                    TitleWithPlanes(),
+                    SizedBox(height: 38),
+                    SearchFilters(),
+                    SizedBox(height: 38),
+                  ],
                 ),
-                const SearchProperties(),
-                const SizedBox(height: 33),
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 1200),
-                  transitionBuilder: (child, animation) {
-                    return ScaleTransition(scale: animation, child: child);
-                  },
-                  child: mainButton,
+              ),
+              const SearchProperties(),
+              const SizedBox(height: 33),
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 1200),
+                transitionBuilder: (child, animation) {
+                  return ScaleTransition(scale: animation, child: child);
+                },
+                child: mainButton,
+              ),
+              const SizedBox(height: 33),
+              SizeTransition(
+                sizeFactor: _searcherResults,
+                child: SearchResults(
+                  tickets: _tickets,
                 ),
-                const SizedBox(height: 33),
-                SizeTransition(
-                  sizeFactor: _searcherResults,
-                  child: SearchResults(
-                    tickets: _tickets,
-                  ),
-                )
-              ],
-            );
-          },
-        ),
+              )
+            ],
+          );
+        },
       ),
     );
   }
@@ -103,7 +99,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Future<void> _showResults() async {
     if (_searcherAnimationController.status == AnimationStatus.completed) {
       mainButton = SearchButton(onSearchPress: () => _showResults());
-      await _searcherAnimationController.animateBack(0, duration: Duration(milliseconds: 1600));
+      await _searcherAnimationController.animateBack(0, duration: const Duration(milliseconds: 1600));
     } else {
       mainButton = ResetButton(onResetPress: () => _showResults());
       await _searcherAnimationController.forward().orCancel;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ResetButton extends StatelessWidget {
   const ResetButton({super.key, required this.onResetPress});
@@ -20,7 +19,7 @@ class ResetButton extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: const [
-              const Text('Search Flights'),
+              Text('Reset Filters'),
               Align(alignment: Alignment.centerRight, child: Icon(Icons.cancel_outlined))
             ],
           )),

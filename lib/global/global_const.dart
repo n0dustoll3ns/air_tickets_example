@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const List<String> cellTitles = [
@@ -21,6 +20,7 @@ const List<String> gTo = [
 ];
 
 const EdgeInsets cellPadding = EdgeInsets.symmetric(vertical: 22);
+const EdgeInsets pagePadding = EdgeInsets.symmetric(horizontal: 22);
 const TextStyle cellTextStyle = TextStyle(color: Colors.white, fontSize: 16);
 
 const inputDecoration = InputDecoration(

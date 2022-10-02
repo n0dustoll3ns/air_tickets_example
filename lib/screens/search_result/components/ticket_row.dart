@@ -75,11 +75,10 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
   }
 
   void openTicketingForm() {
-    print(_animation.status);
     if (_animation.status != AnimationStatus.completed) {
       _controller.forward();
     } else {
-      _controller.animateBack(0, duration: Duration(seconds: 1));
+      _controller.animateBack(0, duration: const Duration(seconds: 1));
     }
   }
 }

@@ -1,7 +1,6 @@
 import 'package:air_tickets/screens/search_result/components/ticket_row.dart';
 import 'package:flutter/material.dart';
 
-import '../../global/global_const.dart';
 import '../../model/ticket.dart';
 
 class SearchResults extends StatelessWidget {

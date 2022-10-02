@@ -24,7 +24,7 @@ class TicketPrice extends StatelessWidget {
             height: cellPadding.bottom,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 33),
+            padding: const EdgeInsets.symmetric(horizontal: 33),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 elevation: 0,
