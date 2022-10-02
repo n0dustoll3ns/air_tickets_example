@@ -11,7 +11,7 @@ class SearchResults extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return Container(
-        constraints: constraints.copyWith(maxHeight: MediaQuery.of(context).size.height * .7),
+        constraints: constraints.copyWith(maxHeight: (MediaQuery.of(context).size.height - 350)),
         margin: const EdgeInsets.symmetric(horizontal: 22),
         padding: const EdgeInsets.only(
           left: 19,
