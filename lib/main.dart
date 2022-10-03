@@ -26,6 +26,7 @@ class AirTicketsExample extends StatelessWidget {
         backgroundColor: const Color(0xFFCDC1FF),
         secondaryHeaderColor: const Color(0xFF6C63FF),
         primaryColor: const Color(0xFFFED66b),
+        cardColor: const Color(0xFFA79DD0)
       ),
       home: const MainPage(),
     );

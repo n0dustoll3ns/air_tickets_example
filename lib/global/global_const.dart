@@ -41,10 +41,12 @@ const EdgeInsets pagePadding = EdgeInsets.symmetric(horizontal: 22);
 const TextStyle cellTextStyle = TextStyle(color: Colors.white, fontSize: 16);
 
 const inputDecoration = InputDecoration(
-  filled: true,
-  fillColor: Colors.white,
-  focusColor: Color(0xFF6C63FF),
-  focusedBorder: UnderlineInputBorder(
-    borderSide: BorderSide(color: Color.fromARGB(255, 73, 63, 255)),
-  ),
-);
+    filled: true,
+    fillColor: Colors.white,
+    focusColor: Color(0xFF6C63FF),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Color.fromARGB(255, 73, 63, 255)),
+    ),
+    enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(width: 0, color: Colors.transparent),
+        borderRadius: BorderRadius.all(Radius.circular(6))));

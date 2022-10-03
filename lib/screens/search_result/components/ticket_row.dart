@@ -62,20 +62,22 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
           child: Container(
             color: Theme.of(context).cardColor,
             margin: const EdgeInsets.symmetric(horizontal: 40),
-            height: 450,
+            height: 313,
             width: double.infinity,
-            child: const TicketingForm(),
+            child: TicketingForm(
+              onBookPress: openTicketingForm,
+            ),
           ),
         ),
       ],
     );
   }
 
-  void openTicketingForm() {
+  Future<void> openTicketingForm() async {
     if (_animation.status != AnimationStatus.completed) {
-      _controller.forward();
+      await _controller.forward();
     } else {
-      _controller.animateBack(0, duration: const Duration(seconds: 1));
+      await _controller.animateBack(0, duration: const Duration(seconds: 1));
     }
   }
 }

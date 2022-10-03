@@ -3,9 +3,14 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../global/global_const.dart';
 
-class SearchProperties extends StatelessWidget {
+class SearchProperties extends StatefulWidget {
   const SearchProperties({super.key});
 
+  @override
+  State<SearchProperties> createState() => _SearchPropertiesState();
+}
+
+class _SearchPropertiesState extends State<SearchProperties> {
   @override
   Widget build(BuildContext context) {
     var toController = TextEditingController();
