@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../global/global_const.dart';
+import '../../ticketing_form/ticketing_form.dart';
 import 'ticket_row_cell.dart';
 
 class TicketRow extends StatefulWidget {
@@ -25,12 +26,12 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 400),
       vsync: this,
     );
     _animation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.fastLinearToSlowEaseIn,
+      curve: Curves.easeInOutQuart,
     );
 
     super.initState();
@@ -58,15 +59,11 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
           sizeFactor: _animation,
           axis: Axis.vertical,
           child: Container(
+            color: Theme.of(context).cardColor,
             margin: const EdgeInsets.symmetric(horizontal: 40),
             height: 450,
             width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
-              border: Border.all(
-                width: Random().nextDouble() * 5,
-              ),
-            ),
+            child: TicketingForm(),
           ),
         ),
       ],
