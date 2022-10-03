@@ -64,7 +64,7 @@ class _TicketRowState extends State<TicketRow> with TickerProviderStateMixin {
             margin: const EdgeInsets.symmetric(horizontal: 40),
             height: 450,
             width: double.infinity,
-            child: TicketingForm(),
+            child: const TicketingForm(),
           ),
         ),
       ],

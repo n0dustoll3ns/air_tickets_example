@@ -13,7 +13,7 @@ class _SearchFiltersState extends State<SearchFilters> {
   String wayEndValue = wayEnd.first;
   String passengersValue = passengersNumber.first;
   String ticketClassValue = ticketClass.last;
-  
+
   @override
   void initState() {
     super.initState();
@@ -35,10 +35,7 @@ class _SearchFiltersState extends State<SearchFilters> {
               icon: const Icon(Icons.arrow_drop_down),
               elevation: 16,
               style: const TextStyle(color: Colors.black),
-              underline: Container(
-                height: 0,
-                color: Colors.deepPurpleAccent,
-              ),
+              underline: Container(height: 0, color: Colors.transparent),
               onChanged: (String? value) {
                 setState(() {
                   wayEndValue = value!;
@@ -60,10 +57,7 @@ class _SearchFiltersState extends State<SearchFilters> {
               icon: const Icon(Icons.arrow_drop_down),
               elevation: 16,
               style: const TextStyle(color: Colors.black),
-              // underline: Container(
-              //   height: 0,
-              //   color: Colors.deepPurpleAccent,
-              // ),
+              underline: Container(height: 0, color: Colors.transparent),
               onChanged: (String? value) {
                 setState(() {
                   passengersValue = value!;
@@ -85,10 +79,7 @@ class _SearchFiltersState extends State<SearchFilters> {
               icon: const Icon(Icons.arrow_drop_down),
               elevation: 16,
               style: const TextStyle(color: Colors.black),
-              // underline: Container(
-              //   height: 0,
-              //   color: Colors.deepPurpleAccent,
-              // ),
+              underline: Container(height: 0, color: Colors.transparent),
               onChanged: (String? value) {
                 setState(() {
                   ticketClassValue = value!;
