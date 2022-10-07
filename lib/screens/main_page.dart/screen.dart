@@ -49,49 +49,52 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: MediaQuery.of(context).size.width<710?Drawer(),
       backgroundColor: Theme.of(context).backgroundColor,
-      body: AnimatedBuilder(
-        animation: _searcherAnimationController,
-        builder: (context, child) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Menu(),
-              SizeTransition(
-                sizeFactor: _searcherTools,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children:const  [
-                    TitleWithPlanes(),
-                    SizedBox(height: 38),
-                    SearchFilters(),
-                    SizedBox(height: 38),
-                  ],
+      body: SingleChildScrollView(
+        child: AnimatedBuilder(
+          animation: _searcherAnimationController,
+          builder: (context, child) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const Menu(),
+                SizeTransition(
+                  sizeFactor: _searcherTools,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children:const  [
+                      TitleWithPlanes(),
+                      SizedBox(height: 38),
+                      SearchFilters(),
+                      SizedBox(height: 38),
+                    ],
+                  ),
                 ),
-              ),
-              const SearchProperties(),
-              const SizedBox(height: 33),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 1200),
-                transitionBuilder: (child, animation) {
-                  return ScaleTransition(scale: animation, child: child);
-                },
-                child: mainButton,
-              ),
-              const SizedBox(height: 33),
-              SizeTransition(
-                sizeFactor: _searcherResults,
-                child: SearchResults(
-                  tickets: _tickets,
+                const SearchProperties(),
+                const SizedBox(height: 33),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 1200),
+                  transitionBuilder: (child, animation) {
+                    return ScaleTransition(scale: animation, child: child);
+                  },
+                  child: mainButton,
                 ),
-              )
-            ],
-          );
-        },
+                const SizedBox(height: 33),
+                SizeTransition(
+                  sizeFactor: _searcherResults,
+                  child: SearchResults(
+                    tickets: _tickets,
+                  ),
+                )
+              ],
+            );
+          },
+        ),
       ),
     );
   }
