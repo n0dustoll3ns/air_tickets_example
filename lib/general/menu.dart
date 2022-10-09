@@ -15,7 +15,7 @@ class Menu extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: SvgPicture.asset(
-              'journey.svg',
+              'assets/journey.svg',
             ),
           ),
           Padding(

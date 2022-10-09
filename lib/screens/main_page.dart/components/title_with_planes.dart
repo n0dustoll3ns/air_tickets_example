@@ -15,7 +15,7 @@ class TitleWithPlanes extends StatelessWidget {
           Transform.translate(
             offset: const Offset(-600, 0),
             child: SvgPicture.asset(
-              'plane.svg',
+              'assets/plane.svg',
             ),
           ),
           Column(
@@ -39,7 +39,7 @@ class TitleWithPlanes extends StatelessWidget {
           Transform.translate(
             offset: const Offset(620, 0),
             child: SvgPicture.asset(
-              'plane.svg',
+              'assets/plane.svg',
             ),
           )
         ],

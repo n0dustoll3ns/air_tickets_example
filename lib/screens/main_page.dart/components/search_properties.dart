@@ -34,7 +34,7 @@ class _SearchPropertiesState extends State<SearchProperties> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: () {}, icon: SvgPicture.asset('plane_up_icon.svg')),
+                      IconButton(onPressed: () {}, icon: SvgPicture.asset('assets/plane_up_icon.svg')),
                       IconButton(
                           onPressed: () {
                             toController.text = toController.text + fromController.text;
@@ -42,8 +42,8 @@ class _SearchPropertiesState extends State<SearchProperties> {
                                 .substring(0, toController.text.length - fromController.text.length);
                             toController.text = toController.text.substring(fromController.text.length);
                           },
-                          icon: SvgPicture.asset('swap_direction.svg')),
-                      IconButton(onPressed: () {}, icon: SvgPicture.asset('plane_up_icon.svg')),
+                          icon: SvgPicture.asset('assets/swap_direction.svg')),
+                      IconButton(onPressed: () {}, icon: SvgPicture.asset('assets/plane_up_icon.svg')),
                     ],
                   ),
                   Row(
@@ -83,7 +83,7 @@ class _SearchPropertiesState extends State<SearchProperties> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        IconButton(onPressed: () {}, icon: SvgPicture.asset('calendar_start.svg')),
+                        IconButton(onPressed: () {}, icon: SvgPicture.asset('assets/calendar_start.svg')),
                         TextFormField(
                           controller: fromController,
                           decoration: inputDecoration.copyWith(hintText: dateHint),
@@ -98,7 +98,7 @@ class _SearchPropertiesState extends State<SearchProperties> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        IconButton(onPressed: () {}, icon: SvgPicture.asset('calendar_end.svg')),
+                        IconButton(onPressed: () {}, icon: SvgPicture.asset('assets/calendar_end.svg')),
                         TextFormField(
                           controller: fromController,
                           decoration: inputDecoration.copyWith(hintText: 'return'),

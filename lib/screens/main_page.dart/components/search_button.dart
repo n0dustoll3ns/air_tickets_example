@@ -22,7 +22,7 @@ class SearchButton extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               const Text('Search Flights'),
-              Align(alignment: Alignment.centerRight, child: SvgPicture.asset('loupe.svg'))
+              Align(alignment: Alignment.centerRight, child: SvgPicture.asset('assets/loupe.svg'))
             ],
           )),
     );
