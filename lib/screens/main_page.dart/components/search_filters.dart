@@ -21,7 +21,6 @@ class _SearchFiltersState extends State<SearchFilters> {
 
   @override
   Widget build(BuildContext context) {
-    var btnStyle = TextButton.styleFrom(textStyle: const TextStyle(fontSize: 16));
     return Padding(
       padding: pagePadding,
       child: Align(

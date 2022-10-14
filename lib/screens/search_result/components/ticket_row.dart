@@ -1,9 +1,7 @@
-import 'dart:math';
 
 import 'package:air_tickets/model/ticket.dart';
 import 'package:air_tickets/screens/search_result/components/ticket_price.dart';
 import 'package:air_tickets/screens/search_result/components/ticket_time.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../global/global_const.dart';
